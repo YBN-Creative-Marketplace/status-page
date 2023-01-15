@@ -6,13 +6,15 @@ export default async function handler(req, res) {
         return;
     }
 
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.DB_STRING);
 
     const data = {
         playercount: req.body.playercount,
     }
    
     const record = await pb.collection('tracker').create(data);
+
+    console.log("server pinged")
 
     res.status(200).json({ record });
 }

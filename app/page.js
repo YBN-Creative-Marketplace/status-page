@@ -14,10 +14,10 @@ function getDateString(date) {
 }
 
 async function getData() {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.DB_STRING);
 
     const MS_PER_MINUTE = 60000;
-    const FIVE_MIN = 60 * MS_PER_MINUTE;
+    const FIVE_MIN = 5 * MS_PER_MINUTE;
     
     const date = getDateString(new Date(Date.now() - FIVE_MIN));
     const filter = `created > "${date}"`;
