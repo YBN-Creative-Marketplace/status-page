@@ -34,11 +34,26 @@ export default async function HomePage() {
     const data = await getData()
 
     const overallPlayercount = data.reduce((acc, cur) => acc + cur.playercount, 0);
+    const onlineServers = data.length;
 
     return ( 
         <main className='homepage'>
-            <h1 className={`${bold.className} title`}>Stats</h1>
-            
+            <div className='content'>
+                <h1 className={`${bold.className} title`}>Stats</h1> 
+                <div className='stats'>
+                    <div className='stat'>
+                        <span className={`${bold.className} stat-title`}>Players online: </span>
+                        <span className={`${light.className} stat-value`}>{overallPlayercount}</span>
+                    </div>
+                    <div className='stat'>
+                        <span className={`${bold.className} stat-title`}>Servers online: </span>
+                        <span className={`${light.className} stat-value`}>{onlineServers}</span>
+                    </div>
+                </div>
+            </div>
+            <div className='watermark'>
+                <span className={`${light.className} watermark-text`}>Made by <a href='https://justus-braun.de/'>Justus Braun</a></span>
+            </div>
         </main>
     );
 }
