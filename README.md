@@ -2,6 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Create a .env.local file and add the pocketbase url in there
+```
+DB_STRING=http://127.0.0.1:8090
+```
+
 First, run the development server:
 
 ```bash
