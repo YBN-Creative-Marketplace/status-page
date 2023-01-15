@@ -1,5 +1,9 @@
 import PocketBase from 'pocketbase';
-import '../styles/index.css';
+import '../styles/homepage.css';
+import localFont from '@next/font/local';
+
+const light = localFont({src: './../fonts/Roboto-Light.ttf'});
+const bold = localFont({src: './../fonts/Roboto-Bold.ttf'});
 
 function getDateString(date) {
     let newDate = date.toISOString();
@@ -31,11 +35,9 @@ export default async function HomePage() {
 
     const overallPlayercount = data.reduce((acc, cur) => acc + cur.playercount, 0);
 
-    console.log(overallPlayercount);
-
     return ( 
         <main className='homepage'>
-            <h1>Status</h1>
+            <h1 className={`${bold.className} title`}>Stats</h1>
             
         </main>
     );
